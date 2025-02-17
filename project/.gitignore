@@ -1,6 +1,4 @@
 node_modules
-package-lock.json
-package.json
 
 # Output
 .output
@@ -9,7 +7,6 @@ package.json
 .wrangler
 /.svelte-kit
 /build
-dbconn.js
 
 # OS
 .DS_Store
