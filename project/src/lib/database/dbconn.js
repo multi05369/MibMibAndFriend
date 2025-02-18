@@ -1,26 +1,30 @@
 import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 
-// Get the current directory from import.meta.url
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+// Get the current directory (__dirname equivalent in ES module)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-let db;
+// Define database path
+const dbPath = path.join(__dirname, 'app.db');
 
-async function getDb() {
-  if (!db) {
-    db = await open({
-      filename: path.join(__dirname, 'database/app.db'), // Absolute path to db
-      driver: sqlite3.Database
-    });
+// Check if the directory is writable
+fs.access(__dirname, fs.constants.W_OK, (err) => {
+  if (err) {
+    console.error('❌ Directory is not writable:', __dirname);
   }
-  return db;
-}
+});
 
-(async () => {
-  try {
-    const db = await getDb();
-    await db.run(`
+// Initialize database
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('❌ Error opening database:', err.message);
+  } else {
+    console.log('✅ Connected to SQLite database:', dbPath);
+
+    db.run(`
       CREATE TABLE IF NOT EXISTS users (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           google_id TEXT UNIQUE,
@@ -34,10 +38,15 @@ async function getDb() {
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
-    `);
-    console.log('Database created successfully');
-  } catch (error) {
-    console.error('Database connection error:', error.message);
-    console.error('Detailed error:', error);
+    `, (err) => {
+      if (err) {
+        console.error('❌ Error creating table:', err.message);
+      } else {
+        console.log('✅ Users table is ready.');
+      }
+    });
   }
-})();
+});
+
+// ✅ Export must be outside any function
+export { db };
