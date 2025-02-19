@@ -1,34 +1,55 @@
 <script>
-    import { onMount } from 'svelte';
-    let email = '';
-    let password = '';
-  
-    function handleLogin() {
-      console.log('Logging in with:', email, password);
-    }
-  </script>
-  
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-200">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-      <h1 class="text-2xl font-bold text-center mb-4">เข้าสู่ระบบ</h1>
-      <div class="mb-4">
-        <label class="block mb-1">Email</label>
-        <input type="email" bind:value={email} class="input input-bordered w-full" placeholder="Enter your email" />
+  import { onMount } from 'svelte';
+
+  let email = '';
+  let password = '';
+
+  function handleLogin(event) {
+    event.preventDefault();
+    console.log('Logging in with:', email, password);
+  }
+
+  onMount(() => {
+    document.getElementById('email-input')?.focus();
+  });
+</script>
+
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-300 to-purple-500">
+  <div class="card w-[400px] bg-white/90 shadow-xl backdrop-blur-lg border border-gray-200">
+    <div class="card-body">
+      <h1 class="text-3xl font-bold text-center text-primary">เข้าสู่ระบบ</h1>
+
+      <form on:submit={handleLogin} class="space-y-4">
+        <div class="form-control">
+          <label class="label text-gray-700">
+            <span class="label-text text-lg">Email</span>
+          </label>
+          <input id="email-input" type="email" bind:value={email} placeholder="Enter your email" class="input input-bordered w-full bg-gray-100" required />
+        </div>
+
+        <div class="form-control">
+          <label class="label text-gray-700">
+            <span class="label-text text-lg">Password</span>
+          </label>
+          <input type="password" bind:value={password} placeholder="Enter your password" class="input input-bordered w-full bg-gray-100" required />
+        </div>
+
+        <button class="btn btn-primary w-full hover:scale-105 transition-all">เข้าสู่ระบบ</button>
+      </form>
+
+      <div class="flex justify-between text-sm text-gray-700 mt-2">
+        <a href="#" class="link link-hover">ลืมรหัสผ่าน?</a>
+        <a href="/signup" class="link link-hover">สร้างบัญชี?</a>
       </div>
-      <div class="mb-4">
-        <label class="block mb-1">Password</label>
-        <input type="password" bind:value={password} class="input input-bordered w-full" placeholder="Enter your password" />
-      </div>
-      <button class="btn btn-primary w-full mb-2" on:click={handleLogin}>เข้าสู่ระบบ</button>
-      <div class="flex justify-between text-sm text-gray-600">
-        <a href="#" class="underline">ลืมรหัสผ่าน</a>
-        <a href="/signin" class="underline">สร้างบัญชี ?</a>
-      </div>
+
       <div class="divider">OR</div>
-      <button class="btn btn-outline w-full">
-        <img src="https://developers.google.com/identity/images/g-logo.png" class="w-5 h-5 mr-2" /> continue with google
+
+      <button class="btn btn-outline w-full flex items-center gap-2 hover:bg-gray-200">
+        <img src="https://developers.google.com/identity/images/g-logo.png" class="w-5 h-5" alt="Google"/>
+        <span>Continue with Google</span>
       </button>
     </div>
-    <p class="mt-6 text-gray-600">เกี่ยวกับเรา | 02-1234567</p>
   </div>
-  
+
+  <p class="absolute bottom-6 text-gray-100 text-sm">เกี่ยวกับเรา | 02-1234567</p>
+</div>

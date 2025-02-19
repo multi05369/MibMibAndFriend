@@ -17,8 +17,7 @@
 			return;
 		}
 
-		const res = await fetch('http://localhost:5173/api/singup', {
-			// ✅ Directly use full URL
+		const res = await fetch('http://localhost:5173/api/signup', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ name, email, password, phone, address })
@@ -33,53 +32,52 @@
 	}
 </script>
 
-<div class="flex min-h-screen flex-col items-center justify-center bg-gray-100">
-	<div class="w-96 rounded-lg bg-white p-8 shadow-lg">
-		<h1 class="mb-4 text-center text-2xl font-bold">Sign Up</h1>
-
+<div class="flex min-h-screen items-center justify-center bg-base-200 px-4 transition-opacity duration-500 ease-in-out opacity-100">
+	<div class="w-full max-w-md rounded-xl bg-base-100 p-6 shadow-xl">
+		<h1 class="text-center text-3xl font-bold text-primary">Sign Up</h1>
+		
 		{#if error}
-			<div class="alert alert-error mb-4">{error}</div>
+			<div class="alert alert-error mt-4">{error}</div>
 		{/if}
 
 		{#if success}
-			<div class="alert alert-success mb-4">{success}</div>
+			<div class="alert alert-success mt-4">{success}</div>
 		{/if}
 
-		<div class="mb-4">
-      <label for="name" class="block mb-1">Name</label>
-      <input id="name" type="text" class="input input-bordered w-full" bind:value={name} required />
-    </div>
+		<form class="mt-6 space-y-6">
+			<label class="form-control w-full">
+				<span class="label-text">Name</span>
+				<input type="text" class="input input-bordered w-full" bind:value={name} required />
+			</label>
 
-		<div class="mb-4">
-      <label for="email" class="block mb-1">Email</label>
-      <input id="email" type="email" class="input input-bordered w-full" bind:value={email} required />
-    </div>
+			<label class="form-control w-full">
+				<span class="label-text">Email</span>
+				<input type="email" class="input input-bordered w-full" bind:value={email} required />
+			</label>
 
-		<div class="mb-4">
-      <label for="password" class="block mb-1">Password</label>
-      <input id="password" type="password" class="input input-bordered w-full" bind:value={password} required />
-    </div>
+			<label class="form-control w-full">
+				<span class="label-text">Password</span>
+				<input type="password" class="input input-bordered w-full" bind:value={password} required />
+			</label>
 
-		<div class="mb-4">
-			<label class="mb-1 block">Confirm Password</label>
-			<input
-				type="password"
-				class="input input-bordered w-full"
-				bind:value={confirmPassword}
-				required
-			/>
-		</div>
+			<label class="form-control w-full">
+				<span class="label-text">Confirm Password</span>
+				<input type="password" class="input input-bordered w-full" bind:value={confirmPassword} required />
+			</label>
 
-		<div class="mb-4">
-      <label for="phone" class="block mb-1">Phone</label>
-      <input id="phone" type="text" class="input input-bordered w-full" bind:value={phone} />
-    </div>
+			<label class="form-control w-full">
+				<span class="label-text">Phone</span>
+				<input type="text" class="input input-bordered w-full" bind:value={phone} />
+			</label>
 
-		<div class="mb-4">
-      <label for="address" class="block mb-1">Address</label>
-      <textarea id="address" class="textarea textarea-bordered w-full" bind:value={address}></textarea>
-    </div>
+			<label class="form-control w-full">
+				<span class="label-text">Address</span>
+				<textarea class="textarea textarea-bordered w-full" bind:value={address}></textarea>
+			</label>
 
-		<button class="btn btn-primary w-full" on:click={registerUser}>Sign Up</button>
+			<div class="mt-4"></div>
+
+			<button type="button" class="btn btn-primary w-full" on:click={registerUser}>Sign Up</button>
+		</form>
 	</div>
 </div>
