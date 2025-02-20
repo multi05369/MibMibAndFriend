@@ -37,6 +37,7 @@
 >
 	<div class="bg-base-100 w-full max-w-md rounded-xl p-6 shadow-xl">
 		<h1 class="text-primary text-center text-3xl font-bold">Sign Up</h1>
+		<h3 class="text-center text-gray-600">Already have an account? <a href="/login" class="link link-hover">Login</a></h3>
 
 		{#if error}
 			<div class="alert alert-error mt-4">{error}</div>
