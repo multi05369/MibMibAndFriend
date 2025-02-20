@@ -1,4 +1,6 @@
 node_modules
+insert.sql
+test.js
 
 # Output
 .output
