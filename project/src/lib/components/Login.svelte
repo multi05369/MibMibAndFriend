@@ -26,23 +26,23 @@
 
   <form on:submit={handleLogin} class="space-y-4">
     <div class="form-control">
-      <label class="label text-gray-700">
+      <label class="label text-base-700">
         <span class="label-text text-lg">Email</span>
       </label>
-      <input id="email-input" type="email" bind:value={email} placeholder="Enter your email" class="input input-bordered w-full bg-gray-100" required />
+      <input id="email-input" type="email" bind:value={email} placeholder="Enter your email" class="input input-bordered w-full bg-base-100" required />
     </div>
 
     <div class="form-control">
-      <label class="label text-gray-700">
+      <label class="label text-base-700">
         <span class="label-text text-lg">Password</span>
       </label>
-      <input type="password" bind:value={password} placeholder="Enter your password" class="input input-bordered w-full bg-gray-100" required />
+      <input type="password" bind:value={password} placeholder="Enter your password" class="input input-bordered w-full bg-base-100" required />
     </div>
 
     <button class="btn btn-primary w-full hover:scale-105 transition-all">เข้าสู่ระบบ</button>
   </form>
 
-  <div class="flex justify-between text-sm text-gray-700 mt-2">
+  <div class="flex justify-between text-sm text-base-700 mt-2">
     <a href="#" class="link link-hover">ลืมรหัสผ่าน?</a>
     <a href="/signup" class="link link-hover">สร้างบัญชี?</a>
   </div>
