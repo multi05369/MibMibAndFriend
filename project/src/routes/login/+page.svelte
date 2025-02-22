@@ -26,7 +26,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-base-200 text-center py-4 text-gray-600">
+    <div class="bg-base-200 text-center py-4 text-base-600">
         เกี่ยวกับเรา | 02-1234567
     </div>
 </div>
