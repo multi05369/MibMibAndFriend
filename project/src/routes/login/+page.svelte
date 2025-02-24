@@ -3,14 +3,6 @@
 </script>
 
 <div class="min-h-screen flex flex-col">
-    <!-- Top Section -->
-    <div class="bg-base-200 py-4 px-8 flex justify-between items-center">
-        <div class="flex items-center">
-            <img src="/image/duck4.png" alt="duck" class="h-10">
-            <h1 class="text-xl font-bold text-purple-600 ml-2">MIBMIB & Friend</h1>
-        </div>
-        <h1 class="text-lg font-bold">เข้าสู่ระบบ</h1>
-    </div>
 
     <!-- Main Content -->
     <div class="flex flex-grow bg-purple-500">
