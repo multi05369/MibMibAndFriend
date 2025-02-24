@@ -2,6 +2,7 @@
 <script>
 	import '../app.css';
 	import Navbar from '$lib/components/Navbar.svelte';
+    
 	let { children } = $props();
 	import { afterNavigate } from '$app/navigation';
     

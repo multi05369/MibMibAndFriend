@@ -1,3 +1,7 @@
+<script>
+  import { user } from '../stores/user'; // Import the store
+</script>
+
 <div class="mx-4 mt-6">
 	<nav class="rounded-xl bg-white px-4 py-3 shadow-md">
 		<div class="container mx-auto flex items-center justify-between">
