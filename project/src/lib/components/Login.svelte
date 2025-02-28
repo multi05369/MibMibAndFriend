@@ -90,17 +90,17 @@
     <div class="form-control">
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="label text-base-700">
-        <span class="label-text text-lg">Email</span>
+        <span class="label-text text-lg">อีเมล</span>
       </label>
-      <input id="email-input" type="email" bind:value={email} placeholder="Enter your email" class="input input-bordered w-full bg-base-100" required />
+      <input id="email-input" type="email" bind:value={email} placeholder="example@gmail.com" class="input input-bordered w-full bg-base-100" required />
     </div>
 
     <div class="form-control">
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="label text-base-700">
-        <span class="label-text text-lg">Password</span>
+        <span class="label-text text-lg">รหัาผ่าน</span>
       </label>
-      <input type="password" bind:value={password} placeholder="Enter your password" class="input input-bordered w-full bg-base-100" required />
+      <input type="password" bind:value={password} placeholder="********" class="input input-bordered w-full bg-base-100" required />
     </div>
 
     <button class="btn btn-primary w-full hover:scale-105 transition-all">เข้าสู่ระบบ</button>

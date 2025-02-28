@@ -101,7 +101,7 @@
 		>
 			<h1 class="text-primary text-center text-3xl font-bold" in:slide>สมัครสมาชิก</h1>
 			<h3 class="text-center text-gray-600" in:slide>
-				มีบัญชีอยู่แล้ว? <a href="/login" class="link link-hover">Login</a>
+				มีบัญชีอยู่แล้ว? <a href="/login" class="link link-hover">เข้าสู่ระบบ</a>
 			</h3>
 
 			{#if error}
@@ -236,7 +236,7 @@
 					<label class="input input-bordered form-control w-full" in:slide>
 						<input
 							type="text"
-							class="input input-bordered w-full"
+							class="w-full"
 							bind:value={address_line1}
 							required
 							placeholder="บ้านเลขที่ ถนน ซอย"
