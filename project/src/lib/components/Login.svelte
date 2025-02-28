@@ -11,6 +11,9 @@
   let hidePage = false;
   let username = ''; // Store the user's name
 
+  /**
+	 * @param {{ preventDefault: () => void; }} event
+	 */
   async function handleLogin(event) {
     event.preventDefault();
     error = '';
@@ -85,6 +88,7 @@
 
   <form on:submit={handleLogin} class="space-y-4" class:opacity-0={hidePage}>
     <div class="form-control">
+      <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="label text-base-700">
         <span class="label-text text-lg">Email</span>
       </label>
@@ -92,6 +96,7 @@
     </div>
 
     <div class="form-control">
+      <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="label text-base-700">
         <span class="label-text text-lg">Password</span>
       </label>
